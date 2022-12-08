@@ -1,0 +1,157 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  width: 100%;
+
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 30px 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4.3px 26.9px -7.5px rgb(14 44 150 / 8%);
+    background:
+      #130646
+      url("https://mox-s3-console-assets.s3.us-east-1.amazonaws.com/Lines_back_purple.svg")
+      center center/contain no-repeat;
+    gap: 30px;
+
+    h1 {
+      margin: 0;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 33px;
+      color: #fff;
+    }
+
+    .containerInput {
+      width: 100%;
+      max-width: 400px;
+
+      .rfcInput {
+        flex-grow: 0;
+        outline: none;
+        border: none;
+        border: 2px solid #e1e1e1;
+        border-radius: 7.5px;
+        padding: 0 19px;
+        width: 100%;
+        height: 45px;
+        box-sizing: border-box;
+        font-size: 14px;
+        text-align: left;
+
+        &::placeholder {
+          color: #7a9ed1;
+        }
+      }
+
+      .rfcInputError {
+        flex-grow: 0;
+        outline: none;
+        border: none;
+        border: 2px solid #f64c4c;
+        border-radius: 7.5px;
+        padding: 0 19px;
+        width: 100%;
+        height: 45px;
+        box-sizing: border-box;
+        font-size: 14px;
+        text-align: left;
+
+        &::placeholder {
+          color: #7a9ed1;
+        }
+      }
+    }
+
+    .containerTyc {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      width: 100%;
+      font-size: 12px;
+      text-align: start;
+      color: #fff;
+
+      .tyc {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+
+        .text {
+          margin-left: 5px;
+          font-weight: 400;
+          font-size: 12px;
+          color: #fff;
+        }
+
+        a {
+          font-weight: bold;
+          font-size: 12px;
+          color: #fff;
+        }
+      }
+
+      .checkbox {
+        & input[type="checkbox" i] {
+          background-color: #130646;
+        }
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .imgWrapper {
+    margin: 30px 0;
+
+    img {
+      width: auto;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    border-radius: 25px;
+    padding: 100px;
+    width: 90%;
+    max-width: 1080px;
+    background:
+      linear-gradient(
+        250deg,
+        rgb(105 232 217 / 50%) 12.11%,
+        rgb(0 0 0 / 0%) 106.6%
+      ),
+      #130646;
+
+    .formContainer {
+      align-items: flex-start;
+      width: 90%;
+      background: transparent;
+
+      h1 {
+        padding: 0;
+        font-size: 30px;
+        text-align: start;
+      }
+    }
+
+    .imgWrapper {
+      margin: 0 auto;
+    }
+  }
+}

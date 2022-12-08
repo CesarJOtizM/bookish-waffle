@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 28px 40px -10px rgb(53 24 168 / 10%);
+  background: #fdfdfe;
+}
+
+.term {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px 10px;
+
+  label {
+    display: block;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    background: #130646;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  input[type="radio"] {
+    display: none;
+
+    &:checked + label {
+      background-color: #143a73;
+    }
+  }
+
+  .disable {
+    background: #767676;
+    cursor: default;
+    user-select: none;
+  }
+}

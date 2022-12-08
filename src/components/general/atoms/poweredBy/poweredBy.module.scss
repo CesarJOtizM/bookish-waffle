@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 10px;
+
+  .text {
+    font-weight: 800;
+    font-style: normal;
+    font-size: 10px;
+    line-height: 13px;
+    letter-spacing: 3px;
+  }
+}
+
+@media (min-width: 769px) {
+  .footer {
+    display: none;
+  }
+}

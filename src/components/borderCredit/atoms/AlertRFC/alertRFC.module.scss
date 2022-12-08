@@ -1,0 +1,26 @@
+%error {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px;
+  color: #fff;
+  background-color: #f64c4c;
+  gap: 7px;
+}
+
+%message {
+  font-size: 15px;
+}
+
+.alertBlock {
+  @extend %error;
+  @extend %message;
+}
+
+.alertNone {
+  @extend %error;
+  @extend %message;
+
+  display: none;
+}

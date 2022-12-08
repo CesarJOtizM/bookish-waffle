@@ -1,0 +1,134 @@
+@use "../../base.scss" as base;
+
+.wrapper {
+  display: block;
+  padding: 0 20px;
+  height: 100vh;
+
+  .success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    border-radius: 10px;
+    padding: 40px;
+    max-width: 400px;
+    box-shadow: 0 28px 40px -10px rgb(53 24 168 / 20%);
+    background: #fdfdfe;
+
+    p {
+      margin: 16px;
+      word-wrap: none;
+      text-align: center;
+    }
+  }
+
+  .requestNumber {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 20px;
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 400px;
+    background: #fdfdfe;
+
+    p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .number {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  }
+
+  .contactInfo {
+    position: relative;
+    top: 80px;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      margin: 0;
+      font-size: 16px;
+      color: #949494;
+    }
+
+    .info {
+      margin: 0 10px;
+
+      .item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 20px 0;
+
+        p {
+          margin: 0 0 0 10px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    border-radius: 25px;
+    padding: 30px;
+    width: 90%;
+    height: auto;
+    max-width: 1080px;
+    background:
+      linear-gradient(
+        250deg,
+        rgb(105 232 217 / 50%) 12.11%,
+        rgb(0 0 0 / 0%) 106.6%
+      ),
+      #130646;
+
+    .success {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: none;
+      box-shadow: none;
+      background: transparent;
+
+      p {
+        font-size: 28px;
+        color: #fff;
+      }
+    }
+
+    .requestNumber {
+      margin: 0;
+      color: #fff;
+      background: transparent;
+    }
+
+    .contactInfo {
+      position: static;
+      margin: 16px;
+      color: #fff;
+
+      h1 {
+        display: none;
+      }
+
+      .item {
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

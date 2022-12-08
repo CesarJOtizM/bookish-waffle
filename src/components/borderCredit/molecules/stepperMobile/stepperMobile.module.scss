@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  p {
+    margin: 0;
+    font-size: 10px;
+    line-height: 15px;
+  }
+}
+
+.step {
+  border-radius: 50%;
+  width: 9px;
+  height: 9px;
+  background-color: #134274;
+}
+
+.steps {
+  display: flex;
+  gap: 3px;
+}
+
+.active {
+  border-radius: 55px;
+  width: 16px;
+  background: #69e8d9;
+}
