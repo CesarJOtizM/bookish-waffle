@@ -40,55 +40,7 @@ const INEStep: React.FC<IProps> = ({ setStep }) => {
   }
 
   const handleSubmit = async (values: ineData) => {
-    /* prompt(
-      'Error',
-      'No hemos podido validar que los documentos correspondan a la misma persona, por favor vuelve a intentarlo.'
-    ) */
-    setLoader(false)
-    const { data, error, loaded } = await requestData(
-      `${process.env.NEXT_PUBLIC_BORDER_URL}/validate/identity`,
-      'POST',
-      {
-        data: {
-          idFront: values.ineFront.split(',')[1],
-          idBack: values.ineBack.split(',')[1],
-          faceCapture: values.selfie.split(',')[1]
-        }
-      },
-      {
-        'x-api-key': 'b33c881f-886d-44d0-aa98-98c7cd5584d9',
-        'message-id': Date.now()
-      }
-    )
-    console.log(error)
-    console.log(loaded)
-
-    if (!error && loaded) {
-      const {
-        data: {
-          information: { curp, nombres, primerApellido, segundoApellido }
-        },
-        metaData: { transactionId }
-      } = data
-      Object.keys(values).forEach(e => {
-        setFieldValue(e, values[e])
-      })
-      setFieldValue('curp', curp)
-      setFieldValue('transactionId', transactionId)
-      setFieldValue(
-        'fullName',
-        `${nombres} ${primerApellido} ${segundoApellido}`
-      )
-      setLoader(loaded)
-      setStep(step => step + 1)
-    } else {
-      setLoader(loaded)
-      prompt(
-        'Error',
-        'No hemos podido validar que los documentos correspondan a la misma persona, por favor vuelve a intentarlo.'
-      )
-      console.log(error)
-    }
+    setStep(step => step + 1)
   }
 
   const validationSchema = Yup.object({
@@ -170,6 +122,17 @@ const INEStep: React.FC<IProps> = ({ setStep }) => {
                   desc={desc}
                 />
               </Portal>
+              <button onClick={() => setLoader(false)}>Loader</button>
+              <button
+                onClick={() =>
+                  prompt(
+                    'Error',
+                    'No hemos podido validar que los documentos correspondan a la misma persona, por favor vuelve a intentarlo.'
+                  )
+                }
+              >
+                error
+              </button>
             </>
           )}
         </Formik>

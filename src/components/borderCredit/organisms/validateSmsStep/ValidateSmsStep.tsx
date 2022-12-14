@@ -44,84 +44,15 @@ const ValidateSmsStep: React.FC<IProps> = ({ setStep, disqualified }) => {
   }, [disableOTP, seconds])
 
   const handleSubmit = async (values: data) => {
-    setLoader(false)
-    if (!values.otp) setError(true)
-    const { error, loaded } = await requestData(
-      `${process.env.NEXT_PUBLIC_BORDER_URL}/validate/otp`,
-      'POST',
-      {
-        data: {
-          cellphone: fValues.cellphone,
-          otp: values.otp
-        }
-      },
-      {
-        'x-api-key': 'b33c881f-886d-44d0-aa98-98c7cd5584d9',
-        'message-id': Date.now(),
-        transactionId: fValues.transactionId
-      }
-    )
-    if (!error && loaded) {
-      setFieldValue('validCellphone', true)
-      const hook = (await searchHook(
-        {
-          data: {
-            transactionId: fValues.transactionId
-          }
-        },
-        `${process.env.NEXT_PUBLIC_BORDER_URL}/validate/state`,
-        {
-          'x-api-key': 'b33c881f-886d-44d0-aa98-98c7cd5584d9',
-          'message-id': Date.now(),
-          transactionId: fValues.transactionId
-        }
-      )) as { age: number; salary: number; account: boolean; company?: string }
-
-      if (hook) {
-        if (hook.account) {
-          setFieldValue('age', hook.age)
-          setFieldValue('salary', hook.salary)
-          setStep(step => step + 2)
-          setLoader(true)
-        } else {
-          setFieldValue('age', hook.age)
-          setFieldValue('salary', hook.salary)
-          setFieldValue('company', hook.company)
-          setLoader(true)
-          setStep(step => step + 1)
-        }
-      } else {
-        setLoader(true)
-        disqualified(true)
-      }
-    } else {
-      setError(true)
-      setLoader(loaded)
-      console.log(error)
-    }
+    setFieldValue('age', 2)
+    setFieldValue('salary', 10000)
+    setFieldValue('company', 'Mox Tech')
+    setFieldValue('fullName', 'Sujeto de pruebas 1')
+    setStep(step => step + 1)
   }
 
   const resentOtp = async (values: string) => {
-    const { error, loaded } = await requestData(
-      `${process.env.NEXT_PUBLIC_BORDER_URL}/send/otp`,
-      'POST',
-      {
-        data: {
-          cellphone: values
-        }
-      },
-      {
-        'x-api-key': 'b33c881f-886d-44d0-aa98-98c7cd5584d9',
-        'message-id': Date.now(),
-        transactionId: fValues.transactionId
-      }
-    )
-    if (!error && loaded) {
-      setDisableOTP(true)
-      setSeconds(60)
-    } else {
-      console.log(error)
-    }
+    console.log(values)
   }
 
   return (

@@ -32,35 +32,7 @@ const AccountStatusStep: React.FC<IProps> = ({ setStep }) => {
   }
 
   const handleSubmit = async (values: accountData) => {
-    setLoader(false)
-    const { error, loaded } = await requestData(
-      `${process.env.NEXT_PUBLIC_BORDER_URL}/send/estadodecuenta`,
-      'POST',
-      {
-        data: {
-          fileName: values.accountStatusName,
-          fileFormat: values.accountStatusName.split('.').pop(),
-          folder: 'border',
-          fileB64: values.accountStatus.split(',')[1]
-        }
-      },
-      {
-        'x-api-key': 'b33c881f-886d-44d0-aa98-98c7cd5584d9',
-        'message-id': Date.now()
-      }
-    )
-    if (!error && loaded) {
-      // const { data } = data
-      Object.keys(values).forEach(e => {
-        setFieldValue(e, values[e])
-      })
-      setLoader(loaded)
-      setStep(step => step + 1)
-    } else {
-      setLoader(loaded)
-      prompt('Error', 'El documento que subiste no es legible.')
-      console.log(error)
-    }
+    setStep(step => step + 1)
   }
 
   const validationSchema = Yup.object({

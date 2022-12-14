@@ -77,36 +77,8 @@ const Calculator: React.FC<IProps> = ({ setStep }) => {
   }, [fValues.age, fValues.salary])
 
   const handleSubmit = async (values: calculatorValues) => {
-    setLoader(false)
-    const { data, error, loaded } = await requestData(
-      `${process.env.NEXT_PUBLIC_BORDER_URL}/offer`,
-      'POST',
-      {
-        data: {
-          loanAmount: amount,
-          offerData: {
-            months: values.months,
-            weeks: values.weeks,
-            paymentAmount: values.paymentAmount
-          }
-        }
-      },
-      {
-        'x-api-key': 'b33c881f-886d-44d0-aa98-98c7cd5584d9',
-        transactionId:
-          fValues.transactionId || '9133ac76-290c-41eb-9ba7-1342be8939b3',
-        'message-id': Date.now()
-      }
-    )
-    if (!error && loaded) {
-      const { offerId } = data
-      setFieldValue('requestNumber', offerId)
-      setLoader(loaded)
-      setStep(prev => prev + 1)
-    } else {
-      setLoader(loaded)
-      console.log(error)
-    }
+    setFieldValue('requestNumber', 'BC1234568780')
+    setStep(prev => prev + 1)
   }
 
   const initialValues: calculatorValues = {

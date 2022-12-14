@@ -37,7 +37,6 @@ const ValidateRFCStep: React.FC<Iprops> = ({ setStep }) => {
   })
 
   const handleSubmit = (values: rfcData) => {
-    console.log(values)
     setFieldValue('tycBorder', values.tycBorder)
     setFieldValue('tycMox', values.tycMox)
     setStep(prev => prev + 1)

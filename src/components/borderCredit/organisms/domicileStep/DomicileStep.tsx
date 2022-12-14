@@ -30,38 +30,8 @@ const DomicileStep: React.FC<IProps> = ({ setStep }) => {
     domicileName: fValues.domicileName || ''
   }
 
-  const handleSubmit = async (values: domicileData) => {
-    setLoader(false)
-    const { data, error, loaded } = await requestData(
-      `${process.env.NEXT_PUBLIC_BORDER_URL}/validate/comprobante`,
-      'POST',
-      {
-        data: {
-          comprobante: values.domicile.split(',')[1]
-        }
-      },
-      {
-        'x-api-key': 'b33c881f-886d-44d0-aa98-98c7cd5584d9',
-        'message-id': Date.now(),
-        transactionId: fValues.transactionId
-      }
-    )
-
-    if (!error && loaded) {
-      const {
-        data: { calle, colonia, ciudad }
-      } = data
-      Object.keys(values).forEach(e => {
-        setFieldValue(e, values[e])
-      })
-      setFieldValue('address', `${calle}, ${colonia}, ${ciudad}`)
-      setStep(step => step + 1)
-      setLoader(loaded)
-    } else {
-      setLoader(loaded)
-      prompt('Error', 'El documento que subiste no es legible.')
-      console.log(error)
-    }
+  const handleSubmit = async () => {
+    setStep(step => step + 1)
   }
 
   const validationSchema = Yup.object({

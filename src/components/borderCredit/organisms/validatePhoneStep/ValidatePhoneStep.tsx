@@ -23,29 +23,7 @@ const ValidatePhoneStep: React.FC<IProps> = ({ setStep }) => {
   }
 
   const handleSubmit = async (values: phoneData) => {
-    setLoader(false)
-    const { error, loaded } = await requestData(
-      `${process.env.NEXT_PUBLIC_BORDER_URL}/send/otp`,
-      'POST',
-      {
-        data: {
-          cellphone: values.cellphone
-        }
-      },
-      {
-        'x-api-key': 'b33c881f-886d-44d0-aa98-98c7cd5584d9',
-        'message-id': Date.now(),
-        transactionId: fValues.transactionId
-      }
-    )
-    if (!error && loaded) {
-      setFieldValue('cellphone', values.cellphone)
-      setLoader(loaded)
-      setStep(step => step + 1)
-    } else {
-      setLoader(loaded)
-      console.log(error)
-    }
+    setStep(step => step + 1)
   }
 
   return (
