@@ -1,10 +1,12 @@
+@use "../../base.scss" as base;
+
 .wrapper {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 28px 40px -10px rgb(53 24 168 / 10%);
-  background: #fdfdfe;
+  background: base.$clear-opacity;
 
   .amount {
     display: flex;
@@ -13,23 +15,27 @@
     margin: 0 15px;
     border-radius: 13px;
     padding: 15px 5px;
-    background: #f7f7ff;
+    background: base.$clear-opacity;
 
     h2 {
       margin: 0;
+      font-family: Outfit, sans-serif;
       font-size: 40px;
       line-height: 56px;
       text-decoration: underline;
       text-underline-position: under;
-      color: #130646;
+      color: base.$primary;
       user-select: none;
     }
 
     button {
-      margin: 0 10px;
+      margin: 0 30px;
       border: none;
+      border-radius: 3px;
       padding: 5px;
-      background: #fff;
+      color: base.$clear;
+      background: base.$primary;
+      transform: scale(2);
       cursor: pointer;
     }
   }

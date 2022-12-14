@@ -1,5 +1,5 @@
 import React from 'react'
-import Step from '../../atoms/step/Step'
+import Step from '@components/borderCredit/atoms/step/Step'
 import styles from './stepper.module.scss'
 
 interface IProps {

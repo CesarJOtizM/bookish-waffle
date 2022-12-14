@@ -1,10 +1,10 @@
 import { Form, Formik } from 'formik'
 import React, { useState } from 'react'
-import AccountStatusStep from '../../../borderCredit/organisms/accountStatusStep/AccountStatusStep'
-import DomicileStep from '../../../borderCredit/organisms/domicileStep/DomicileStep'
-import INEStep from '../../../borderCredit/organisms/ineStep/INEStep'
-import Stepper from '../../../borderCredit/molecules/stepper/Stepper'
-import StepperMobile from '../../../borderCredit/molecules/stepperMobile/StepperMobile'
+import AccountStatusStep from '@components/borderCredit/organisms/accountStatusStep/AccountStatusStep'
+import DomicileStep from '@components/borderCredit/organisms/domicileStep/DomicileStep'
+import INEStep from '@components/borderCredit/organisms/ineStep/INEStep'
+import Stepper from '@components/borderCredit/molecules/stepper/Stepper'
+import StepperMobile from '@components/borderCredit/atoms/stepperMobile/StepperMobile'
 import styles from './InputContainer.module.scss'
 
 type IV = {

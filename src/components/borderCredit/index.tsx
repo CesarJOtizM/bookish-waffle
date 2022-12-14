@@ -10,16 +10,20 @@ import ValidateSmsStep from './organisms/validateSmsStep/ValidateSmsStep'
 import AccountStatusStep from './organisms/accountStatusStep/AccountStatusStep'
 import Calculator from './organisms/calculator/Calculator'
 import Success from './organisms/success/Success'
+import Error from './organisms/error/Error'
 
-interface Values {
+export interface formValues {
   fullName: string
   rfc: string
+  transactionId: string
+  requestNumber: string
   curp: string
   company: string
   address: string
   cellphone: string
   validCellphone: boolean
-  age: string
+  age: number
+  salary: number
   requiredAmount: number
   monts: number
   tycBorder: boolean
@@ -30,20 +34,28 @@ interface Values {
   ineBackName: string
   selfie: string
   selfieName: string
+  domicile: string
+  domicileName: string
+  accountStatus: string
+  accountStatusName: string
 }
 
 const BorderCreditForm: React.FC = () => {
   const [step, setStep] = useState<number>(1)
+  const [error, setError] = useState(false)
 
-  const initialValues = {
+  const initialValues: formValues = {
     fullName: '',
     rfc: '',
+    transactionId: '',
+    requestNumber: '',
     curp: '',
     company: '',
     address: '',
     cellphone: '',
     validCellphone: false,
-    age: '',
+    age: 0,
+    salary: 0,
     requiredAmount: 0,
     monts: 0,
     tycBorder: false,
@@ -53,10 +65,14 @@ const BorderCreditForm: React.FC = () => {
     ineBack: '',
     ineBackName: '',
     selfie: '',
-    selfieName: ''
+    selfieName: '',
+    domicile: '',
+    domicileName: '',
+    accountStatus: '',
+    accountStatusName: ''
   }
 
-  const handleSubmit = (values: Values) => {
+  const handleSubmit = (values: formValues) => {
     setStep(prev => prev + 1)
     console.log(values)
   }
@@ -69,14 +85,22 @@ const BorderCreditForm: React.FC = () => {
       >
         {() => (
           <>
-            {step === 1 && <ValidateRFCStep setStep={setStep} />}
-            {step === 2 && <INEStep setStep={setStep} />}
-            {step === 3 && <DomicileStep setStep={setStep} />}
-            {step === 4 && <ValidatePhoneStep setStep={setStep} />}
-            {step === 5 && <ValidateSmsStep setStep={setStep} />}
-            {step === 6 && <AccountStatusStep setStep={setStep} />}
-            {step === 7 && <Calculator setStep={setStep} />}
-            {step === 8 && <Success RequestNumber="BC123011055000665" />}
+            {!error ? (
+              <>
+                {step === 1 && <ValidateRFCStep setStep={setStep} />}
+                {step === 2 && <INEStep setStep={setStep} />}
+                {step === 3 && <DomicileStep setStep={setStep} />}
+                {step === 4 && <ValidatePhoneStep setStep={setStep} />}
+                {step === 5 && (
+                  <ValidateSmsStep setStep={setStep} disqualified={setError} />
+                )}
+                {step === 6 && <AccountStatusStep setStep={setStep} />}
+                {step === 7 && <Calculator setStep={setStep} />}
+                {step === 8 && <Success />}
+              </>
+            ) : (
+              <Error />
+            )}
           </>
         )}
       </Formik>

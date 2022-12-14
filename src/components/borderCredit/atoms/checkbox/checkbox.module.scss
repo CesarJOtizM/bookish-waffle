@@ -1,0 +1,65 @@
+@use "../../base.scss" as base;
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  min-height: 45px;
+  box-sizing: border-box;
+  font-size: 15px;
+
+  & label {
+    font-size: 12px;
+    line-height: 18px;
+    text-align: left;
+    user-select: none;
+
+    & strong,
+    & a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  & input[type="checkbox"] {
+    appearance: none;
+    z-index: 2;
+
+    // display: grid;
+    place-content: center;
+    margin: 0;
+    margin-right: 10px;
+    border: 1px solid base.$clear;
+    border-radius: 2px;
+    width: 14px !important;
+    height: 14px;
+    font: inherit;
+    color: #6c69ff;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  & input[type="checkbox"]:checked {
+    // border: 1px solid #00bfa6;
+    color: base.$clear;
+    background-color: base.$info;
+  }
+
+  /* & input[type='checkbox']:before {
+    content: '';
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    width: 12px;
+    height: 12px;
+    box-shadow: inset 1em 1em #fff;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+  } */
+
+  & input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
+}

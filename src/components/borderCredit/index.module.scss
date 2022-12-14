@@ -4,4 +4,8 @@
   align-items: center;
   height: 100vh;
   background-image: url("../../assets/img/BorderBackground.svg");
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
 }

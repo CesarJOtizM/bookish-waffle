@@ -1,0 +1,52 @@
+@use "../../base.scss" as base;
+
+@keyframes spinner-c7wet2 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.loaderWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  height: 100vh;
+  text-align: center;
+  gap: 20px;
+
+  .loader {
+    mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), base.$dark 0);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    background:
+      radial-gradient(farthest-side, base.$info 94%, #0000) top/9px
+      9px no-repeat,
+      conic-gradient(base.$primary 30%, base.$info);
+    animation: spinner-c7wet2 1s infinite linear;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  @media (min-width: 769px) {
+    @include base.wrapper-desktop;
+
+    align-content: center;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 20px;
+
+    p {
+      font-size: 14px;
+      line-height: 22px;
+      color: base.$clear;
+    }
+  }
+}

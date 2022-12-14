@@ -1,3 +1,5 @@
+@use "../../base.scss" as base;
+
 %button {
   margin: 0 0 30px;
   border: none;
@@ -5,10 +7,11 @@
   padding: 10px 105px;
   width: fit-content;
   min-height: 50px;
+  font-family: Poppins, sans-serif;
   font-size: 16px;
   text-align: center;
-  color: #fff;
-  background-color: #130646;
+  color: base.$clear;
+  background-color: base.$primary;
   transition:
     background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
     box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
@@ -16,7 +19,8 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #00bfa6;
+    color: base.$primary;
+    background-color: base.$info;
   }
 }
 
@@ -29,7 +33,7 @@
   align-items: center;
   padding: 10px 0 0;
   width: 100%;
-  background-color: #fff;
+  background-color: base.$clear;
 
   .back {
     display: none;
@@ -41,7 +45,7 @@
     .secondary {
       box-shadow: 0 4.3px 26.9px -7.5px rgb(14 44 150 / 8%);
       color: #6c63ff;
-      background-color: #fff;
+      background-color: base.$clear;
     }
   }
 }
@@ -55,6 +59,7 @@
     justify-content: space-between;
     width: 90%;
     max-width: 1080px;
+    background-color: transparent;
 
     .back {
       display: block;

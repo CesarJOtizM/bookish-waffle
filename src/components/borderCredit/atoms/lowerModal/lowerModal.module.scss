@@ -1,0 +1,91 @@
+@use "../../base.scss" as base;
+
+.modal,
+.modal.active {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 400;
+    display: none;
+    align-items: flex-end;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: base.$dark, $alpha: 25%);
+
+    /* animation-name: modal-close;
+    animation-duration: 2s;
+    animation-timing-function: ease; */
+
+    .card {
+      position: absolute;
+      border-radius: 40px 40px 0 0;
+      padding: 40px 40px 30px;
+      width: 100%;
+      background-color: base.$clear;
+
+      // transition: transform 1s ease;
+      animation-name: card-close;
+      animation-duration: 1s;
+      animation-timing-function: ease;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 36px;
+      color: base.$primary;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 22px;
+      color: base.$dark;
+    }
+
+    &.active {
+      display: flex;
+
+      .card {
+        animation-name: modal-animation;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+      }
+    }
+  }
+}
+
+@keyframes modal-animation {
+  from {
+    transform: translateY(60px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* @keyframes modal-close {
+  from {
+    display: flex;
+  }
+
+  to {
+    display: none;
+  }
+} */
+
+@keyframes card-close {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(60px);
+  }
+}

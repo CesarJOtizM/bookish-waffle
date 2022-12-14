@@ -1,11 +1,33 @@
 // colors
 $primary: #130646;
-$secondary: #f6f7ff;
-$gray: #f6f7ff;
-$black: #151515;
-$clear: #f8f9fc;
-$link: #be4ed0;
+$gray: #e1e1e1;
+$info: #69e8d9;
+$secondary: #143a73;
 $danger: #f64c4c;
-$info: #9cf1e7;
-$title: #2c73d6;
-$text: #797979;
+$clear: #fff;
+$dark-gray: #394352;
+$dark: #000;
+$clear-opacity: #fdfdfe85;
+$light-gray: #7a9ed1;
+
+// other
+$background-desktop: linear-gradient(
+  253.09deg,
+  rgb(105 232 217 / 50%) 12.11%,
+  rgb(0 0 0 / 0%) 80%
+),
+  $primary;
+
+@mixin wrapper-desktop {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 25px;
+  border-radius: 20px;
+  padding: 45px 100px;
+  width: 90%;
+  min-height: 530px;
+  max-width: 1080px;
+  background: $background-desktop;
+}

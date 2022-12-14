@@ -1,5 +1,5 @@
 import React from 'react'
-import PoweredBy from '../../../general/atoms/poweredBy/PoweredBy'
+import PoweredBy from '@components/general/atoms/poweredBy/PoweredBy'
 import styles from './footer.module.scss'
 
 interface Iprops {

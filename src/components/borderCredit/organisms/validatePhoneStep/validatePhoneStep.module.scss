@@ -1,3 +1,5 @@
+@use "../../base.scss" as base;
+
 .form {
   width: 100%;
 }
@@ -10,16 +12,7 @@
   width: 100%;
 
   @media (min-width: 769px) {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-    border-radius: 20px;
-    padding: 45px 100px;
-    width: 90%;
-    height: 531px;
-    max-width: 1080px;
-    background: linear-gradient(253.09deg, rgb(105 232 217 / 50%) 12.11%, rgb(0 0 0 / 0%) 106.6%), #130646;
+    @include base.wrapper-desktop;
 
     // gap: 50px;
 
@@ -43,8 +36,8 @@
     }
 
     .imageContainer {
-      // width: 232px;
-      // height: 308px;
+      align-self: center;
+      justify-self: center;
     }
   }
 }

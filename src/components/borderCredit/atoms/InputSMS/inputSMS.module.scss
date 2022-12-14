@@ -1,3 +1,5 @@
+@use "../../base.scss" as base;
+
 .inputDiv {
   display: flex;
   flex-direction: row;
@@ -20,14 +22,14 @@
   // background-color: $clear;
   ::placeholder {
     font-size: 30px;
-    color: #7a9ed1;
+    color: base.$secondary;
   }
 }
 
 %error {
   @extend %input;
 
-  border: 1px solid #f64c4c;
+  border: 1px solid base.$danger;
 }
 
 .alertBlock {

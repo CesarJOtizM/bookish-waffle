@@ -1,26 +1,47 @@
+@use "../../base.scss" as base;
+
 .wrapper {
   padding: 28px 24px;
   width: 100%;
   max-width: 1080px;
 
-  @media (min-width: 769px) {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: 1fr 1fr;
-    margin: 0 25px;
-    border-radius: 20px;
-    padding: 45px 100px;
-    width: 90%;
-    height: 531px;
-    background: linear-gradient(253.09deg, rgb(105 232 217 / 50%) 12.11%, rgb(0 0 0 / 0%) 106.6%), #130646;
+  .description {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    gap: 22px;
+
+    label {
+      font-size: 14px;
+      line-height: 21px;
+      color: base.$dark-gray;
+    }
+
+    p {
+      margin: 0;
+      height: 18px;
+      font-size: 12px;
+      line-height: 18px;
+      color: base.$danger;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .wrapper {
+    @include base.wrapper-desktop;
+
     gap: 50px;
 
     .container {
       gap: 18px;
 
       label {
-        color: white !important;
+        color: base.$clear !important;
       }
 
       & > div > label {
@@ -29,92 +50,19 @@
       }
     }
 
-    .modal {
-      .card {
-        h3 {
-          display: none;
-        }
+    .description {
+      display: block;
+      align-self: center;
+      justify-self: center;
+      max-width: 384px;
+      text-align: left;
+      color: base.$clear;
 
-        p {
-          font-size: 14px;
-          line-height: 22px;
-          color: #fff;
-        }
+      p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 22px;
       }
-    }
-  }
-}
-
-.container {
-  display: flex;
-  flex-basis: 50%;
-  flex-direction: column;
-  gap: 22px;
-
-  label {
-    font-size: 14px;
-    line-height: 21px;
-    color: #394352;
-  }
-
-  p {
-    margin: 0;
-    height: 18px;
-    font-size: 12px;
-    line-height: 18px;
-    color: #f64c4c;
-  }
-}
-
-.modal {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 400;
-  display: none;
-  align-items: flex-end;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba($color: #000, $alpha: 25%);
-
-  &.active {
-    display: flex;
-  }
-
-  .card {
-    border-radius: 40px 40px 0 0;
-    padding: 40px 40px 30px;
-    width: 100%;
-    background-color: white;
-  }
-
-  h3 {
-    margin: 0;
-    font-size: 24px;
-    line-height: 36px;
-    color: #130646;
-  }
-
-  p {
-    margin: 0;
-    font-size: 14px;
-    line-height: 22px;
-    color: #000;
-  }
-
-  @media (min-width: 769px) {
-    position: relative;
-    display: flex;
-    flex-basis: 50%;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    height: auto;
-    background-color: transparent;
-
-    .card {
-      border-radius: 0;
-      background-color: transparent;
     }
   }
 }

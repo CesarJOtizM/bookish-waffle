@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import React from 'react'
+import Image from 'next/image'
 import styles from './poweredBy.module.scss'
 
 const PoweredBy: React.FC = () => {

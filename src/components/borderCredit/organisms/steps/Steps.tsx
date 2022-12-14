@@ -1,10 +1,10 @@
+import React from 'react'
 import Image from 'next/image'
-import React, { useCallback, useEffect, useState } from 'react'
-import Stepper from '../../molecules/stepper/Stepper'
-import StepperMobile from '../../molecules/stepperMobile/StepperMobile'
-import styles from './steps.module.scss'
-import Logo from '../../../../assets/img/LogoBorderCredit.png'
 import { ArrowLeft } from 'feather-icons-react'
+import Stepper from '@components/borderCredit/molecules/stepper/Stepper'
+import StepperMobile from '@components/borderCredit/atoms/stepperMobile/StepperMobile'
+import Logo from '@assets/img/LogoBorderCredit.png'
+import styles from './steps.module.scss'
 
 interface IProps {
   step: number
@@ -12,8 +12,6 @@ interface IProps {
 }
 
 const Steps: React.FC<IProps> = ({ step, setStep }) => {
-  const [WindowSize, setWindowSize] = useState<number>(0)
-
   const stepperTitles = [
     'Cargar RFC',
     'INE y Selfie',
@@ -23,18 +21,6 @@ const Steps: React.FC<IProps> = ({ step, setStep }) => {
     'Estado de cuenta',
     'Pre oferta'
   ]
-
-  const handleWindowResize = useCallback(() => {
-    setWindowSize(window.innerWidth)
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener('resize', handleWindowResize)
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize)
-    }
-  }, [handleWindowResize])
 
   return (
     <header className={styles.wrapper}>

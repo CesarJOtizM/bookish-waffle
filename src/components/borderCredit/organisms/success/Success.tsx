@@ -1,16 +1,15 @@
-import Image from 'next/image'
 import React, { useState } from 'react'
-import callCenter from '../../../../assets/img/CallCenter.png'
-import styles from './success.module.scss'
+import Image from 'next/image'
 import { Copy, Phone, Mail, MapPin } from 'feather-icons-react'
-import Tooltip from '../../../general/atoms/tooltip'
-import { copyText } from '../../../../helpers/copyText'
+import callCenter from '@assets/img/CallCenter.png'
+import Tooltip from '@components/general/atoms/tooltip'
+import { copyText } from '@helpers/copyText'
+import styles from './success.module.scss'
+import { formValues } from '@components/borderCredit'
+import { useFormikContext } from 'formik'
 
-interface Iprops {
-  RequestNumber: string
-}
-
-const Success: React.FC<Iprops> = ({ RequestNumber }) => {
+const Success: React.FC = () => {
+  const { values: fValues } = useFormikContext<formValues>()
   const [active, setActive] = useState<boolean>(false)
 
   return (
@@ -26,11 +25,11 @@ const Success: React.FC<Iprops> = ({ RequestNumber }) => {
       <div className={styles.requestNumber}>
         <p>Número de solicitud</p>
         <div className={styles.number}>
-          <p>{RequestNumber} &#8194;</p>
+          <p>{fValues.requestNumber} &#8194;</p>
           <Tooltip text={active ? 'Copiado!' : 'Copiar'}>
             <Copy
               size={16}
-              onClick={() => copyText(RequestNumber, setActive)}
+              onClick={() => copyText(fValues.requestNumber, setActive)}
             />
           </Tooltip>
         </div>

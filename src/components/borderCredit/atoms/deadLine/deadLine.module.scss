@@ -1,3 +1,5 @@
+@use "../../base.scss" as base;
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -5,7 +7,7 @@
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 28px 40px -10px rgb(53 24 168 / 10%);
-  background: #fdfdfe;
+  background: base.$clear-opacity;
 }
 
 .term {
@@ -17,25 +19,37 @@
     display: block;
     border-radius: 10px;
     padding: 10px;
+    font-family: Outfit, sans-serif;
     font-size: 16px;
     text-align: center;
-    color: #fff;
-    background: #130646;
+    color: base.$clear;
+    background: base.$primary;
     cursor: pointer;
     user-select: none;
+  }
+
+  label:hover {
+    color: base.$info;
+    background-color: base.$secondary;
   }
 
   input[type="radio"] {
     display: none;
 
     &:checked + label {
-      background-color: #143a73;
+      background-color: base.$secondary;
     }
   }
 
   .disable {
-    background: #767676;
+    background: base.$dark-gray;
+    opacity: 0.7;
     cursor: default;
     user-select: none;
+
+    &:hover {
+      color: base.$clear;
+      background: base.$dark-gray;
+    }
   }
 }

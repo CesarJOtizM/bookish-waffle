@@ -1,3 +1,5 @@
+@use "../../base.scss" as base;
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -11,25 +13,45 @@
     display: flex;
     flex-direction: column;
     align-content: center;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     border-radius: 15px;
     padding: 30px 20px;
-    width: 90%;
-    max-width: 400px;
+
+    // width: 90%;
+
+    // max-width: 400px;
     box-shadow: 0 4.3px 26.9px -7.5px rgb(14 44 150 / 8%);
-    background:
-      #130646
-      url("https://mox-s3-console-assets.s3.us-east-1.amazonaws.com/Lines_back_purple.svg")
-      center center/contain no-repeat;
-    gap: 30px;
+    background: #130646;
+    gap: 10px;
+
+    & > div {
+      padding: 10px;
+
+      // margin-bottom: 10px;
+    }
 
     h1 {
       margin: 0;
       font-weight: 400;
       font-size: 22px;
       line-height: 33px;
-      color: #fff;
+      color: base.$clear;
+    }
+
+    .spanwicon {
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      width: 100%;
+      font-size: 13px;
+      color: base.$clear;
+    }
+
+    .icons {
+      margin-right: 12px;
+      width: 16px;
+      color: base.$info;
     }
 
     .containerInput {
@@ -40,7 +62,7 @@
         flex-grow: 0;
         outline: none;
         border: none;
-        border: 2px solid #e1e1e1;
+        border: 2px solid base.$gray;
         border-radius: 7.5px;
         padding: 0 19px;
         width: 100%;
@@ -50,7 +72,7 @@
         text-align: left;
 
         &::placeholder {
-          color: #7a9ed1;
+          color: base.$light-gray;
         }
       }
 
@@ -58,7 +80,7 @@
         flex-grow: 0;
         outline: none;
         border: none;
-        border: 2px solid #f64c4c;
+        border: 2px solid base.$danger;
         border-radius: 7.5px;
         padding: 0 19px;
         width: 100%;
@@ -68,7 +90,7 @@
         text-align: left;
 
         &::placeholder {
-          color: #7a9ed1;
+          color: base.$light-gray;
         }
       }
     }
@@ -77,6 +99,7 @@
       display: flex;
       flex-direction: column;
       justify-content: left;
+      padding: 0;
       width: 100%;
       font-size: 12px;
       text-align: start;
@@ -103,7 +126,7 @@
 
       .checkbox {
         & input[type="checkbox" i] {
-          background-color: #130646;
+          background-color: base.$primary;
         }
       }
 
@@ -114,44 +137,67 @@
   }
 
   .imgWrapper {
+    position: relative;
+    bottom: 68px;
     margin: 30px 0;
 
     img {
-      width: auto;
+      width: 118px;
+      height: 281px;
     }
   }
 }
 
 @media (min-width: 769px) {
   .wrapper {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    border-radius: 25px;
-    padding: 100px;
-    width: 90%;
-    max-width: 1080px;
-    background:
-      linear-gradient(
-        250deg,
-        rgb(105 232 217 / 50%) 12.11%,
-        rgb(0 0 0 / 0%) 106.6%
-      ),
-      #130646;
+    @include base.wrapper-desktop;
+
+    grid-template-columns: 70% 30%;
 
     .formContainer {
       align-items: flex-start;
+      padding: 0;
       width: 90%;
+      max-width: 100%;
       background: transparent;
 
-      h1 {
+      & > div {
+        padding: 10px;
+      }
+
+      .containerTyc {
         padding: 0;
-        font-size: 30px;
+      }
+
+      h1 {
+        margin: 0;
+        margin-bottom: 30px;
+        font-size: 28px;
+        line-height: 42px;
         text-align: start;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 22px;
       }
     }
 
+    .image {
+      height: 36vh;
+    }
+
     .imgWrapper {
+      position: static;
+      z-index: 8000;
       margin: 0 auto;
+
+      // transform: scale(1.6);
+
+      img {
+        width: 180px;
+        height: 420px;
+      }
     }
   }
 }

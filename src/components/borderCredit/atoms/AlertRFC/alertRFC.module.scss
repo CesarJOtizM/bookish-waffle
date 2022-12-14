@@ -1,11 +1,14 @@
+@use "../../base.scss" as base;
+
 %error {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
+  margin-bottom: -6px;
   padding: 5px;
-  color: #fff;
-  background-color: #f64c4c;
+  color: base.$clear;
+  background-color: base.$danger;
   gap: 7px;
 }
 

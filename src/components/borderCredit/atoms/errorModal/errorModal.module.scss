@@ -1,0 +1,63 @@
+@use "../../base.scss" as base;
+
+.modalContainer {
+  display: none;
+}
+
+.active {
+  display: block;
+
+  .modalOverlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.5;
+  }
+
+  .modalWrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1050;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal {
+    position: relative;
+    top: 50%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 8px;
+    padding: 40px 21px;
+    max-width: 275px;
+    color: base.$danger;
+    background: #fff0f0;
+    transform: translateY(-50%);
+
+    h4 {
+      margin: 0;
+      margin-bottom: 11px;
+      font-size: 26px;
+      line-height: 39px;
+    }
+
+    p {
+      margin: 0;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      color: #394352;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Field, useFormikContext } from 'formik'
-import styles from './fileInput.module.scss'
 import { File, Image, UploadCloud } from 'feather-icons-react'
+import styles from './fileInput.module.scss'
 
 interface IProps {
   name: string
@@ -10,13 +10,17 @@ interface IProps {
   capture?: boolean
 }
 
+/* type valuesType = {
+  [name: string]: string
+} */
+
 const FileInput: React.FC<IProps> = ({ name, fileName, type, capture }) => {
   const [fName, setFName] = useState(fileName || '')
   const [fType, setFType] = useState<'doc' | 'image' | 'none'>('none')
   /* const [b64, setB64] = useState('') */
 
-  const { setFieldValue, values } = useFormikContext()
-  const fValues = values as any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { setFieldValue, values: fValues } = useFormikContext<any>()
 
   useEffect(() => {
     if (fName) {
@@ -26,7 +30,7 @@ const FileInput: React.FC<IProps> = ({ name, fileName, type, capture }) => {
         setFType('doc')
       }
     }
-  }, [])
+  }, [fName, fType, fValues, name])
 
   const handleChange = (
     event:

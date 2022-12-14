@@ -1,3 +1,5 @@
+@use "../../base.scss" as base;
+
 .form {
   width: 100%;
 }
@@ -10,27 +12,18 @@
   width: 100%;
 
   @media (min-width: 769px) {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-    border-radius: 20px;
-    padding: 45px 100px;
-    width: 90%;
-    height: 531px;
-    max-width: 1080px;
-    background: linear-gradient(253.09deg, rgb(105 232 217 / 50%) 12.11%, rgb(0 0 0 / 0%) 106.6%), #130646;
+    @include base.wrapper-desktop;
 
     // gap: 50px;
 
-    .formcontainer {
+    .formContainer {
       align-items: flex-start;
       margin: 0;
       padding: 0;
       box-shadow: none;
       background: transparent;
 
-      .formtitle {
+      .formTitle {
         margin: 0;
         margin-bottom: 20px;
         font-size: 2rem;
@@ -47,13 +40,13 @@
     }
 
     .imageContainer {
-      // width: 232px;
-      // height: 308px;
+      align-self: center;
+      justify-self: center;
     }
   }
 }
 
-.formcontainer {
+.formContainer {
   display: flex;
   flex-grow: 0;
   flex-direction: column;
@@ -66,25 +59,25 @@
   width: 90%;
   max-width: 400px;
   box-shadow: 0 4.3px 26.9px -7.5px rgb(14 44 150 / 8%);
-  background-color: #130646;
+  background-color: base.$primary;
   gap: 12.9px;
 }
 
-.containertitle {
+.containerTitle {
   width: 100%;
 }
 
-.formtitle {
+.formTitle {
   margin: 0;
   margin-bottom: 20px;
   width: 100%;
   font-weight: 400;
   font-size: 22px;
   line-height: 33px;
-  color: #fff;
+  color: base.$clear;
 }
 
-.containerinput {
+.containerInput {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -102,10 +95,10 @@
   font-size: 12px;
   line-height: 18px;
   text-align: justify;
-  color: #fff;
+  color: base.$clear;
 }
 
-.containertyc {
+.containerTyc {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -114,14 +107,19 @@
 }
 
 .resend {
+  margin: 10px 0;
+  border: none;
+  width: fit-content;
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
   text-decoration-line: underline;
-  color: #69e8d9;
+  color: base.$info;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.iconrefresh {
+.iconRefresh {
   position: absolute;
   margin-top: 4px;
   width: 22px;
@@ -129,10 +127,10 @@
 }
 
 .checkbox input[type="checkbox" i] {
-  background-color: #130646;
+  background-color: base.$primary;
 }
 
-.containerbutton {
+.containerButton {
   display: flex;
   flex-grow: 0;
   flex-direction: column;
@@ -163,8 +161,8 @@
   font-size: 16px;
   line-height: 20px;
   text-align: center;
-  color: #fff;
-  background-color: #130646;
+  color: base.$clear;
+  background-color: base.$primary;
   transition:
     background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
     box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
@@ -172,35 +170,20 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #00bfa6;
+    background-color: base.$info;
   }
 }
 
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-}
-
-.footerpowered {
-  font-weight: 800;
-  font-style: normal;
-  font-size: 8px;
-  line-height: 13px;
-  letter-spacing: 0.3em;
-}
-
 .input {
-  // outline: none;
   border: none;
   border-radius: 4px;
-
-  // padding: 0 19px;
   width: 30px !important;
   height: 30px;
-  color: #000 !important;
+  color: base.$dark !important;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .inputContainer {
@@ -212,5 +195,5 @@
 }
 
 .inputError {
-  border: 1px solid #f64c4c;
+  border: 1px solid base.$danger;
 }
